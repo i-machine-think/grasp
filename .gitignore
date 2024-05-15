@@ -1,3 +1,11 @@
+# Custom rules
+/.vscode
+/weights
+/models
+/results
+/data/*
+!/data/prompts
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

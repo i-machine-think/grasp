@@ -1,0 +1,13 @@
+model: openllama_peft
+imagebind_ckpt_path: /home/serwansj/research/grasp/weights/imagebind
+vicuna_ckpt_path: /home/serwansj/research/grasp/weights/vicuna/7b_v0
+delta_ckpt_path: /home/serwansj/research/grasp/weights/pandagpt/pandagpt_7b_max_len_1024/pytorch_model.pt
+repository_path: /home/serwansj/research/models/PandaGPT
+stage: 2
+max_tgt_len: 128
+lora_r: 32
+lora_alpha: 32
+lora_dropout: 0.1
+top_p: 0.01
+temperature: 1.0
+max_length: 256

@@ -1,0 +1,3 @@
+test_name: level2
+prompt_file: ./data/prompts/level2.json
+data_csv: ./data/level2.csv

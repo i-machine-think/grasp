@@ -1,0 +1,2 @@
+test_name: level2-text
+prompt_file: ./data/prompts/level2_scene_descriptions.json

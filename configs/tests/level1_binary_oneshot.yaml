@@ -1,0 +1,4 @@
+test_name: level1-binary
+prompt_file: ./data/prompts/level1.json
+data_csv: ./data/level1.csv
+mode: oneshot

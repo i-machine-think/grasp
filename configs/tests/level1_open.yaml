@@ -1,0 +1,3 @@
+test_name: level1-open
+prompt_file: ./data/prompts/level1.json
+data_csv: ./data/level1.csv

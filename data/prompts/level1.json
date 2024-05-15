@@ -1,0 +1,30 @@
+{
+    "Movement": {
+        "binary": "The ball is {}. Is this true? Answer only with yes or no."
+    },
+    "RelationalPosition": {
+        "open": "Which side of the black barrier is the ball on?",
+        "binary": "The ball is on the {} side of the black barrier. Is this true? Answer only with yes or no."
+    },
+    "Direction": {
+        "open": "Which direction is the ball rolling?",
+        "binary": "The ball is rolling {}. Is this true? Answer only with yes or no."
+    },
+    "Shape": {
+        "open": "What shape is the object on the table?",
+        "binary": "A {} is on the table. Is this true? Answer only with yes or no."
+    },
+    "Color": {
+        "open": "What color is the object on the table?",
+        "binary": "The ball on the table is {}. Is this true? Answer only with yes or no."
+    },
+    "TwoObjectOrdering": {
+        "binary": "From left to right, the following objects are on the table: {}, {}. Is this true? Answer only with yes or no."
+    },
+    "ThreeObjectOrdering": {
+        "binary": "From left to right, the following objects are on the table: {}, {}, {}. Is this true? Answer only with yes or no."
+    },
+    "FourObjectOrdering": {
+        "binary": "From left to right, the following objects are on the table: {}, {}, {}, {}. Is this true? Answer only with yes or no."
+    }
+}
