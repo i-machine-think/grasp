@@ -18,12 +18,12 @@ We currently provide some configurations (in `configs/models`) and [setup instru
 * [Video-LLaMA 2](https://arxiv.org/abs/2306.02858)
 
 Further, we provide configurations for different tests in `configs/tests`:
-* `level1_binary.yaml`: Binary Level 1.
+* `level1_binary.yaml`: Binary Level 1 with default prompting.
 * `level1_binary_cot.yaml`: Binary Level 1 with chain-of-thought prompting.
 * `level1_binary_oneshot.yaml`: Binary Level 1 with one-shot prompting.
 * `level1_open.yaml`: Level 1 with open questions.
-* `level2.yaml`: Level 2 with videos.
-* `level2_text.yaml`: Level 2 with scene descriptions (no videos).
+* `level2.yaml`: Level 2 with default prompting.
+* `level2_text.yaml`: Level 2 with scene descriptions instead of videos.
 
 Models can be evaluated on our benchmark:
 1. Our benchmark videos can be downloaded from [this](https://drive.google.com/drive/folders/1F_9R1zLtAMQ7N_IIIio6HjEBkGuuMX4M) Google Drive. Specifically, download `videos.zip` and unzip it in the `data` directory.
