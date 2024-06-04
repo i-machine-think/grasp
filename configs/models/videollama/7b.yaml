@@ -3,17 +3,16 @@ model:
   model_type: pretrain_vicuna
   freeze_vit: True
   freeze_qformer: True
-  max_txt_len: 512
+  max_txt_len: 160
   end_sym: "###"
   low_resource: False
 
   frozen_llama_proj: False
 
-  # If you want use LLaMA-2-chat,
-  # some ckpts could be download from our provided huggingface repo
-  # i.e.  https://huggingface.co/DAMO-NLP-SG/Video-LLaMA-2-13B-Finetuned
   llama_model: weights/vicuna/7b_v0
-  ckpt: weights/videollama/Video-LLaMA-Series/pretrain_vicuna7b-v2.pth   # you can use our pretrained ckpt from https://huggingface.co/DAMO-NLP-SG/Video-LLaMA-2-13B-Pretrained/
+  imagebind_ckpt_path: weights/imagebind
+  ckpt: weights/videollama/finetune-vicuna7b-v2.pth
+  llama_proj_model: weights/minigpt4/pretrained_minigpt4_7b.pth
   equip_audio_branch: False
 
   fusion_head_layers: 2

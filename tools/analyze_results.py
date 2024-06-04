@@ -15,7 +15,7 @@ OPEN_CHOICES = {
     },
     "Shape": {
         "ball": ["ball", "sphere", "round"],
-        "cube": ["cube", "box", "rectangular"],
+        "cube": ["cube", "box", "rectangular", "square"],
     },
     "Color": {
         "red": ["red"],
@@ -37,7 +37,19 @@ def intersects(a, b):
     return False
 
 
-def count_open(scenario, df):
+def count_open(scene: str, df: pd.DataFrame):
+    """Parses the responses by the models for strings that are valid responses
+    for each scene.
+
+    Args:
+        scene (str): The name of the current scene, so we can get the possible
+            answers from OPEN_CHOICES above.
+        df (pd.DataFrame): Dataframe containing responses and ground truths.
+
+    Returns:
+        tuple[int, int]: Number of correct answers, number of wrong
+            answers.
+    """
     n_correct = 0
     n_false = 0
     for _, row in df.iterrows():
@@ -49,13 +61,13 @@ def count_open(scenario, df):
             for w in words
         ]
         contains_true_label = intersects(words,
-                                         OPEN_CHOICES[scenario][true_label])
+                                         OPEN_CHOICES[scene][true_label])
         contains_wrong_label = False
-        for label, variants in OPEN_CHOICES[scenario].items():
+        for label, variants in OPEN_CHOICES[scene].items():
             if label == true_label:
                 continue
             # Special case for Direction
-            if scenario == "Direction":
+            if scene == "Direction":
                 if label == "right" and true_label == "left":
                     if "right to left" in response or \
                             "right to the left" in response:
@@ -74,7 +86,13 @@ def count_open(scenario, df):
     return n_correct, n_false
 
 
-def analyze_open(df, out_file):
+def analyze_open(df: pd.DataFrame, out_file: str):
+    """Calculates accuracies for open-ended tests (multi-class classification).
+
+    Args:
+        df (pd.DataFrame): Dataframe containing responses and ground truths.
+        out_file (str):  Where the results should be stored.
+    """
     # if there was a back-and-forth with the model,
     # we are only interested in the final response
     df['response'] = df['response'].apply(lambda x: x.split('<SEP>')[-1])
@@ -120,7 +138,16 @@ def analyze_open(df, out_file):
     print(table)
 
 
-def count(df):
+def count(df: pd.DataFrame):
+    """Parses the responses by the models and counts yes/no answers.
+
+    Args:
+        df (pd.DataFrame): Dataframe containing responses and ground truths.
+
+    Returns:
+        tuple[int, int, int, int]: Number of "yes" responses, Number of "no"
+            responses, invalid responses, correct responses.
+    """
     # Extract responses
     responses = list(df['response'])
 
@@ -151,7 +178,13 @@ def count(df):
     return n_yes, n_no, n_invalid, n_correct
 
 
-def analyze_binary(df, out_file):
+def analyze_binary(df: pd.DataFrame, out_file: str):
+    """Calculates accuracies for binary classification tests.
+
+    Args:
+        df (pd.DataFrame): Dataframe containing the outputs and ground truths.
+        out_file (str): Where the results should be stored.
+    """
     # if there was a back-and-forth with the model,
     # we are only interested in the final response
     df['response'] = df['response'].apply(lambda x: x.split('<SEP>')[-1])

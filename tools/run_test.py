@@ -6,11 +6,18 @@ from datetime import datetime
 from tqdm import tqdm
 
 from grasp.models.builder import build_model
+from grasp.models.wrapper import ModelWrapper
 from grasp.tests.builder import build_test
+from grasp.tests.test import Test
 
 
-def run(model, test):
-    i = 0
+def run(model: ModelWrapper, test: Test):
+    """Collects responses from a model on a specific test.
+
+    Args:
+        model (ModelWrapper): The model to be evaluated.
+        test (Test): The test on which the model is evaluated.
+    """
     for test_instance in tqdm(test.test_instances):
         model.reset()
         responses = []
@@ -19,10 +26,6 @@ def run(model, test):
             responses.append(model.submit(prompt, video_file, False))
 
         test_instance.response = responses
-
-        i += 1
-        if i == 10:
-            break
 
 
 if __name__ == "__main__":

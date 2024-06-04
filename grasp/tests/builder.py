@@ -3,7 +3,18 @@ import yaml
 from grasp.tests import Level1Binary, Level1Open, Level2, Level2Text
 
 
-def build_test(config_file):
+def build_test(config_file: str):
+    """Build a test instance from a configuration.
+
+    Args:
+        config_file (str): Configuration file.
+
+    Raises:
+        RuntimeError: Raises an error if the specified test does not exist.
+
+    Returns:
+        Test: An instance of the test.
+    """
     with open(config_file, 'r') as file:
         config = yaml.load(file, Loader=yaml.FullLoader)
 

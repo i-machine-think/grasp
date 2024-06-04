@@ -59,9 +59,8 @@ class VideoLLaMA(ModelWrapper):
             'You will be able to see a video once I '
             'provide it to you. Please answer my questions.')
         self.img_list = []
-        print(red('System message:'), self.chat_state.system)
 
-    def submit(self, prompt: str, video: str = None):
+    def submit(self, prompt: str, video: str = None, verbose: bool = True):
         """Submit a prompt with a video to the model.
 
         Args:
@@ -69,10 +68,14 @@ class VideoLLaMA(ModelWrapper):
             video (str, optional): Path to the video file. Defaults to None.
         """
         if video is not None:
-            self.chat.upload_video(video, self.chat_state, self.img_list)
-            print(green(f'Prompt: ({video})'), prompt)
+            self.chat.upload_video_without_audio(video, self.chat_state,
+                                                 self.img_list)
+            if verbose:
+                print(green(f'Prompt: ({video})'), prompt)
         else:
-            print(green('Prompt:'), prompt)
+            if verbose:
+                print(green('Prompt:'), prompt)
+
         self.chat.ask(prompt, self.chat_state)
         response = self.chat.answer(conv=self.chat_state,
                                     img_list=self.img_list,
@@ -80,5 +83,8 @@ class VideoLLaMA(ModelWrapper):
                                     temperature=1.0,
                                     max_new_tokens=300,
                                     max_length=2000)[0]
-        print(blue('Video_LLaMA:'), response)
+
+        if verbose:
+            print(blue('Video_LLaMA:'), response)
+
         return response

@@ -1,8 +1,8 @@
 model: openllama_peft
-imagebind_ckpt_path: ./weights/imagebind
-vicuna_ckpt_path: ./weights/vicuna/7b_v0
-delta_ckpt_path: ./weights/pandagpt/pandagpt_7b_max_len_512/pytorch_model.pt
-repository_path: ./models/PandaGPT
+imagebind_ckpt_path: weights/imagebind
+vicuna_ckpt_path: weights/vicuna/7b_v0
+delta_ckpt_path: weights/pandagpt/pandagpt_7b_max_len_512/pytorch_model.pt
+repository_path: models/PandaGPT
 stage: 2
 max_tgt_len: 128
 lora_r: 32

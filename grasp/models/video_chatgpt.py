@@ -44,14 +44,6 @@ class VideoChatGPT(ModelWrapper):
         """
         pass
 
-    def reset(self):
-        """Reset the history of the conversation with the model."""
-        from video_chatgpt.video_conversation import conv_templates
-        self.state = conv_templates['simulator'].copy()
-        self.img_list = []
-        system_msg = self.state.system
-        print(red('System message:'), system_msg)
-
     def submit(self, prompt: str, video: str = None):
         """Submit a prompt with a video to the model.
 
