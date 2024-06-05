@@ -92,3 +92,14 @@ xvfb-run python3 tools/generate_videos.py --scenes build/Level1/FourObjectOrderi
 
 ## Create additional scenes :video_game:
 Our entire Unity source code can be found in the [GRASP](https://github.com/i-machine-think/grasp/tree/main/GRASP) directory. This contains the scenes and scripts for all tests in Levels 1 and 2 of GRASP. We also provide some [instructions](https://github.com/i-machine-think/grasp/wiki/Add-Unity-Scenes) on how to add further tests in Unity. We encourage you to create pull requests with the addition of new tests!
+
+## Citation :book:
+If you use GRASP in your work, please cite using:
+```bibtex
+@article{jassim2024grasp,
+  title={GRASP: A novel benchmark for evaluating language GRounding And Situated Physics understanding in multimodal language models},
+  author={Jassim, Serwan and Holubar, Mario and Richter, Annika and Wolff, Cornelius and Ohmer, Xenia and Bruni, Elia},
+  journal={arXiv preprint arXiv:2311.09048},
+  year={2024}
+}
+```
