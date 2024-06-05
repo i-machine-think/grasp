@@ -11,12 +11,20 @@ In this repository, we publish all benchmark resources:
 3. Unity source code for extension of the benchmark.
 
 ## Setup :hammer:
-1. Create conda environment:
-`conda create --name grasp python=3.9`
-2. Install PyTorch (adjust CUDA version if necessary):
-`conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia`
-3. Install GRASP:
-`pip3 install -e .`
+1. Create a conda environment:
+```
+conda create --name grasp python=3.9
+```
+3. Install PyTorch (adjust CUDA version if necessary):
+```
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+```
+5. Install the GRASP python package:
+```
+git clone https://github.com/i-machine-think/grasp.git
+cd grasp
+pip3 install -e .
+```
 
 ## Evaluate models :bar_chart:
 We currently provide some configurations (in `configs/models`) and [setup instructions](https://github.com/i-machine-think/grasp/wiki/Video%E2%80%90LLM-Setup-Instructions) for the following Video-LLMs:
