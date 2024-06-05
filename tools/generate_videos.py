@@ -48,7 +48,10 @@ def frames2video(images: list, output_file: str, fps: int = 50):
     video_writer.release()
 
 
-def create_videos(env_paths: list, out: str, txt_file: str = None, n: int = 128):
+def create_videos(env_paths: list,
+                  out: str,
+                  txt_file: str = None,
+                  n: int = 128):
     """Creates <n> videos for all environemtns in <env_paths>.
 
     Args:
@@ -93,7 +96,7 @@ def create_videos(env_paths: list, out: str, txt_file: str = None, n: int = 128)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Generate videos from environments')
-    parser.add_argument('--directory',
+    parser.add_argument('--dir',
                         type=str,
                         help='Directory that contains the environment builds')
     parser.add_argument('--scenes', type=str, nargs='+', help='Scene names')
@@ -111,16 +114,21 @@ if __name__ == '__main__':
                         help='Where results are dumped')
     args = parser.parse_args()
 
-    assert (args.directory is None) ^ (
+    assert (args.dir is None) ^ (
         args.scenes is None
     ), 'Specify either a directory containing scenes or list individual scenes'
 
-    if args.directory is None:
+    if args.dir is None:
         env_paths = args.scenes
     else:
-        env_paths = [
-            os.path.join(args.directory, f) for f in os.listdir(args.directory)
-        ]
+        env_paths = [os.path.join(args.dir, f) for f in os.listdir(args.dir)]
+
+    envs_without_obj_ordering = []
+    if args.txt_file is None:
+        for path in env_paths:
+            if 'ordering' not in path.lower():
+                envs_without_obj_ordering.append(path)
+        env_paths = envs_without_obj_ordering
 
     if args.txt_file is not None:
         assert len(env_paths) == 1, \
