@@ -1,5 +1,15 @@
 # GRASP: A novel benchmark for evaluating language GRounding And Situated Physics understanding in multimodal language models [[Paper](https://arxiv.org/abs/2311.09048)]
 
+## Introduction
+GRASP is a novel language grounding and intuitive physics benchmark for evaluating video-based multimodal large language models. The benchmark comprises two levels and is modeled in the Unity simulator. The first level of GRASP tests for basic visual understanding of multimodal LLMs, specifically it tests for the understanding of shapes, colors, movement, ordering of objects, and relational positions. Level 1 lays the groundwork for higher-order reasoning required in Level 2 of GRASP where we take inspiration from research on infant cognition regarding intuitive physics concepts. These concepts include continuity, solidity, inertia, gravity, collision, object permanence, support, and unchangeableness. 
+
+<img width="1090" alt="Screenshot 2024-06-05 at 18 03 40" src="https://github.com/i-machine-think/grasp/assets/44338225/e6ff9a31-5304-460b-ad35-9667b3938827">
+
+In this repository, we publish all benchmark resources:
+1. Benchmark videos and code for evaluation of models.
+2. Unity builds of benchmark tests for the generation of additional videos.
+3. Unity source code for extension of the benchmark.
+
 ## Setup :hammer:
 1. Create conda environment:
 `conda create --name grasp python=3.9`
