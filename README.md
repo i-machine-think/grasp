@@ -65,7 +65,7 @@ We provide access to the Unity scene builds in the aforementioned [Google Drive]
 1. Download and unzip `build.zip` from the Google Drive.
 2. The video generation requires the installation of Unity's ML-Agents Python package:
 ```bash
-git clone --branch release_21 https://github.com/Unity-Technologies/ml-agents.git
+git clone --branch release_20 https://github.com/Unity-Technologies/ml-agents.git
 cd ml-agents
 python -m pip install ./ml-agents-envs
 ```
