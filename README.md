@@ -8,8 +8,7 @@
 3. Install GRASP:
 `pip3 install -e .`
 
-## Usage
-### Evaluating models
+## Evaluating models
 We currently provide some configurations (in `configs/models`) and [setup instructions](https://github.com/i-machine-think/grasp/wiki/Video%E2%80%90LLM-Setup-Instructions) for the following Video-LLMs:
 * [PandaGPT](https://arxiv.org/abs/2305.16355)
 * [VTimeLLM](https://arxiv.org/abs/2311.18445)
@@ -43,7 +42,7 @@ python3 tools/compute_accuracy.py <results_dir>
 ```
 This will print a table with results to the terminal and will also write a table to a text file in the results directory.
 
-### Collecting additional videos
+## Collecting additional videos
 We provide access to the Unity scene builds in the aforementioned [Google Drive](https://drive.google.com/drive/folders/1F_9R1zLtAMQ7N_IIIio6HjEBkGuuMX4M). These are compiled Unity scenes that we used to generate the benchmark videos. Videos can be generated as follows:
 1. Download and unzip `build.zip` from the Google Drive.
 2. The video generation requires the installation of Unity's ML-Agents Python package:
@@ -73,5 +72,5 @@ xvfb-run python3 tools/generate_videos.py --scenes build/Level1/FourObjectOrderi
 ```
 
 
-### Creating additional scenes
+## Creating additional scenes
 Our entire Unity source code can be found in the [GRASP](https://github.com/i-machine-think/grasp/tree/main/GRASP) directory. This contains the scenes and scripts for all tests in Levels 1 and 2 of GRASP. We also provide some [instructions](https://github.com/i-machine-think/grasp/wiki/Add-Unity-Scenes) on how to add further tests in Unity. We encourage you to create pull requests with the addition of new tests!
