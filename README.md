@@ -71,7 +71,7 @@ python -m pip install ./ml-agents-envs
 ```
 3. We recommend using `xvfb-run` to generate the videos so that the simulation does not actually need to be rendered on screen. Install `xvfb-run` with:
 ```
-sudo apt install `xvfb-run`
+sudo apt install xvfb-run
 ```
 4. Generate new videos:
 ```bash
