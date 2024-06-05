@@ -86,7 +86,7 @@ def count_open(scene: str, df: pd.DataFrame):
     return n_correct, n_false
 
 
-def analyze_open(df: pd.DataFrame, out_file: str):
+def accuracy_open(df: pd.DataFrame, out_file: str):
     """Calculates accuracies for open-ended tests (multi-class classification).
 
     Args:
@@ -178,7 +178,7 @@ def count(df: pd.DataFrame):
     return n_yes, n_no, n_invalid, n_correct
 
 
-def analyze_binary(df: pd.DataFrame, out_file: str):
+def accuracy_binary(df: pd.DataFrame, out_file: str):
     """Calculates accuracies for binary classification tests.
 
     Args:
@@ -234,7 +234,8 @@ def analyze_binary(df: pd.DataFrame, out_file: str):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Analyze results')
+    parser = argparse.ArgumentParser(
+        description='Compute accuracies for results')
     parser.add_argument('results_dir',
                         type=str,
                         help='Directory containing the results')
@@ -251,6 +252,6 @@ if __name__ == "__main__":
         df['experiment'] = df['scene'].apply(lambda x: x.split('_')[1])
 
     if test_name == 'level1-open':
-        analyze_open(df, out_file)
+        accuracy_open(df, out_file)
     else:
-        analyze_binary(df, out_file)
+        accuracy_binary(df, out_file)

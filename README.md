@@ -37,9 +37,9 @@ python3 tools/run_test.py <model_config> <test_config>
 ```
 This will create a folder in `results` and dump the outputs into a csv file.
 
-4. Analyze the accuracy of previously collected outputs:
+4. Compute the accuracy of previously collected outputs:
 ```bash
-python3 tools/analyze_results.py <results_dir>
+python3 tools/compute_accuracy.py <results_dir>
 ```
 This will print a table with results to the terminal and will also write a table to a text file in the results directory.
 
