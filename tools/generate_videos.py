@@ -48,11 +48,12 @@ def frames2video(images: list, output_file: str, fps: int = 50):
     video_writer.release()
 
 
-def create_videos(env_paths: list, txt_file: str = None, n: int = 128):
+def create_videos(env_paths: list, out: str, txt_file: str = None, n: int = 128):
     """Creates <n> videos for all environemtns in <env_paths>.
 
     Args:
         env_paths (list): List of directories containing environments.
+        out (str): Output directory.
         txt_file (str, optional): Path to text files that contains labels in
             case the test requires them. Defaults to None.
         n (int, optional): Number of videos to collect. Defaults to 128.
@@ -62,7 +63,7 @@ def create_videos(env_paths: list, txt_file: str = None, n: int = 128):
             env = load_env(env_path, i)
             imgs = []
             action = [0.0, 0.0]
-            dname = os.path.join("videos", env_path.split("/")[-1])
+            dname = os.path.join(out, *env_path.split("/")[-2:]).lower()
             os.makedirs(dname, exist_ok=True)
 
             try:
@@ -104,6 +105,10 @@ if __name__ == '__main__':
                         type=int,
                         default=128,
                         help='Number of videos to collect')
+    parser.add_argument('--out',
+                        default='data/videos',
+                        type=str,
+                        help='Where results are dumped')
     args = parser.parse_args()
 
     assert (args.directory is None) ^ (
@@ -121,4 +126,4 @@ if __name__ == '__main__':
         assert len(env_paths) == 1, \
             'When txt-file is specified, only a single scene can be specified'
 
-    create_videos(env_paths, args.txt_file, args.N)
+    create_videos(env_paths, args.out, args.txt_file, args.N)
