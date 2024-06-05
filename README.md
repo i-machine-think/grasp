@@ -65,13 +65,13 @@ We provide access to the Unity scene builds in the aforementioned [Google Drive]
 1. Download and unzip `build.zip` from the Google Drive.
 2. The video generation requires the installation of Unity's ML-Agents Python package:
 ```bash
-git clone --branch release_21 https://github.com/Unity-Technologies/ml-agents.git
+git clone --branch release_20 https://github.com/Unity-Technologies/ml-agents.git
 cd ml-agents
 python -m pip install ./ml-agents-envs
 ```
 3. We recommend using `xvfb-run` to generate the videos so that the simulation does not actually need to be rendered on screen. Install `xvfb-run` with:
 ```
-sudo apt install `xvfb-run`
+sudo apt install xvfb-run
 ```
 4. Generate new videos:
 ```bash
