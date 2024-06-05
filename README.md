@@ -1,4 +1,4 @@
-# GRASP: A novel benchmark for evaluating language GRounding And Situated Physics understanding in multimodal language models [(Paper)[https://arxiv.org/abs/2311.09048]]
+# GRASP: A novel benchmark for evaluating language GRounding And Situated Physics understanding in multimodal language models [[Paper](https://arxiv.org/abs/2311.09048)]
 
 ## Setup :hammer:
 1. Create conda environment:
