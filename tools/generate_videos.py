@@ -66,7 +66,8 @@ def create_videos(env_paths: list,
             env = load_env(env_path, i)
             imgs = []
             action = [0.0, 0.0]
-            dname = os.path.join(out.lower(), *env_path.split("/")[-2:])
+            dname = os.path.join(out[0].lower() + out[1:],
+                                 *env_path.split("/")[-2:])
             os.makedirs(dname, exist_ok=True)
 
             try:
