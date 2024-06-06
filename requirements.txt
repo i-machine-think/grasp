@@ -7,3 +7,4 @@ accelerate==0.29.3
 git+https://github.com/lm-sys/FastChat.git@v0.1.10
 omegaconf==2.3.0
 opencv-python==4.9.0.80
+git+https://github.com/openai/CLIP.git

@@ -1,0 +1,6 @@
+model_path: weights/videochatgpt/LLaVA-7B-Lightening-v1-1
+projection_path: weights/videochatgpt/video_chatgpt-7B.bin
+temperature: 0.2
+max_output_tokens: 512
+
+repository_path: models/Video-ChatGPT

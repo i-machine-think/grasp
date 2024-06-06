@@ -5,7 +5,7 @@ import sys
 import yaml
 
 from grasp.models.wrapper import ModelWrapper
-from grasp.utils import blue, green, red
+from grasp.utils import blue, green
 
 
 class VideoLLaMA(ModelWrapper):
@@ -19,7 +19,7 @@ class VideoLLaMA(ModelWrapper):
         super(VideoLLaMA, self).__init__(config_file)
         print('Loading Video-LLaMA ...')
 
-        from video_llama.common.registry import registry  # type: ignore
+        from video_llama.common.registry import registry
         from video_llama.conversation.conversation_video import Chat
 
         gpu_id = self.config.gpu_id
@@ -42,7 +42,7 @@ class VideoLLaMA(ModelWrapper):
             config = yaml.load(file, Loader=yaml.FullLoader)
 
         sys.path.insert(0, os.path.join(config['repository_path']))
-        from video_llama.common.config import Config  # type: ignore
+        from video_llama.common.config import Config
 
         args = argparse.Namespace(**dict(options=[], cfg_path=config_file))
         cfg = Config(args)
@@ -66,6 +66,8 @@ class VideoLLaMA(ModelWrapper):
         Args:
             prompt (str): Prompt string.
             video (str, optional): Path to the video file. Defaults to None.
+            verbose (bool, optional): Whether to print to the prompt and
+                answers. Defaults to True.
         """
         if video is not None:
             self.chat.upload_video_without_audio(video, self.chat_state,

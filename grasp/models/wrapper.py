@@ -27,11 +27,13 @@ class ModelWrapper(ABC):
         pass
 
     @abstractmethod
-    def submit(self, prompt: str, video: str = None):
+    def submit(self, prompt: str, video: str = None, verbose: bool = True):
         """Submit a prompt with a video to the model.
 
         Args:
             prompt (str): Prompt string.
             video (str, optional): Path to the video file. Defaults to None.
+            verbose (bool, optional): Whether to print to the prompt and
+                answers. Defaults to True.
         """
         pass

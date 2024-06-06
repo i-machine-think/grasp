@@ -21,7 +21,7 @@ class PandaGPT(ModelWrapper):
 
         sys.path.insert(0, os.path.join(self.config['repository_path'],
                                         'code'))
-        from model.openllama import OpenLLAMAPEFTModel  # type: ignore
+        from model.openllama import OpenLLAMAPEFTModel
 
         self.model = OpenLLAMAPEFTModel(**self.config)
         delta_ckpt = torch.load(self.config['delta_ckpt_path'],
@@ -53,6 +53,8 @@ class PandaGPT(ModelWrapper):
         Args:
             prompt (str): Prompt string.
             video (str, optional): Path to the video file. Defaults to None.
+            verbose (bool, optional): Whether to print to the prompt and
+                answers. Defaults to True.
         """
         if verbose:
             print(green(f'Prompt: ({video})'), prompt)
@@ -89,9 +91,7 @@ class PandaGPT(ModelWrapper):
             'modality_embeds':
             self.modality_cache
         })
-
         self.history.append((prompt, response))
-
         if verbose:
             print(blue('PandaGPT:'), response)
 
