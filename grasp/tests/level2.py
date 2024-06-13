@@ -18,4 +18,4 @@ class Level2(Test):
                 TestInstance(
                     row['scene'], [scene_prompts[row['scene'].split('_')[1]]],
                     [row['video_file']],
-                    'yes' if row['scene'].split('_') == 'P' else 'no'))
+                    'yes' if row['scene'].split('_')[0] == 'P' else 'no'))

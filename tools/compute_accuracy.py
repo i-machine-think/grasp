@@ -188,10 +188,8 @@ def accuracy_binary(df: pd.DataFrame, out_file: str):
     # if there was a back-and-forth with the model,
     # we are only interested in the final response
     df['response'] = df['response'].apply(lambda x: x.split('<SEP>')[-1])
-    if 'experiment' in df:
-        experiments = df.groupby('experiment')
-    else:
-        experiments = df.groupby('scene')
+    df['scene'] = df['scene'].apply(lambda x: x.split('_')[-1])
+    experiments = df.groupby('scene')
     experiments = sorted(experiments)
 
     results = []

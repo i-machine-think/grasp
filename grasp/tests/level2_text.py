@@ -13,4 +13,4 @@ class Level2Text(Test):
         for scene, prompt in scene_prompts.items():
             self.test_instances.append(
                 TestInstance(scene, [prompt], [None],
-                             'yes' if scene.split('_') == 'P' else 'no'))
+                             'yes' if scene.split('_')[0] == 'P' else 'no'))
